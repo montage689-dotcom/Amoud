@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️</title>
+<style>
+body{
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#000;
+overflow:hidden;
+font-family:Arial,sans-serif;
+}
+h1{
+color:#fff;
+font-size:45px;
+text-align:center;
+animation:zoom 1.5s infinite alternate;
+text-shadow:0 0 20px red;
+}
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.15);}
+}
+.heart{
+position:absolute;
+color:red;
+font-size:25px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+0%{transform:translateY(-100px);}
+100%{transform:translateY(110vh);}
+}
+</style>
+</head>
+<body>
+
+<h1>❤️ توحشتك جميلة ❤️</h1>
+
+<script>
+for(let i=0;i<60;i++){
+let h=document.createElement("div");
+h.innerHTML="❤️";
+h.className="heart";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(3+Math.random()*5)+"s";
+h.style.fontSize=(15+Math.random()*30)+"px";
+document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
