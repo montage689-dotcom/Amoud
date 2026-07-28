@@ -1,57 +1,174 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>❤️</title>
+
+<title>جميلة... أميرتي ❤️</title>
+
 <style>
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#000;
+overflow:hidden;
+font-family:Tahoma,Arial,sans-serif;
+color:white;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-background:#000;
-overflow:hidden;
-font-family:Arial,sans-serif;
-}
-h1{
-color:#fff;
-font-size:45px;
 text-align:center;
-animation:zoom 1.5s infinite alternate;
-text-shadow:0 0 20px red;
 }
+
+#intro{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:black;
+animation:fadeOut 7s forwards;
+animation-delay:8s;
+}
+
+#intro h1{
+font-size:45px;
+color:#fff;
+text-shadow:0 0 20px red;
+animation:zoom 2s infinite alternate;
+}
+
+#main{
+display:none;
+padding:20px;
+z-index:10;
+}
+
 @keyframes zoom{
 from{transform:scale(1);}
-to{transform:scale(1.15);}
+to{transform:scale(1.1);}
 }
-.heart{
-position:absolute;
-color:red;
-font-size:25px;
-animation:fall linear infinite;
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
 }
+}
+
 @keyframes fall{
-0%{transform:translateY(-100px);}
-100%{transform:translateY(110vh);}
+0%{
+transform:translateY(-100px);
+}
+100%{
+transform:translateY(110vh);
+}
+}
+
+.rose{
+position:absolute;
+font-size:28px;
+animation:fall linear infinite;
 }
 </style>
 </head>
+
 <body>
 
-<h1>❤️ توحشتك جميلة ❤️</h1>
+<div id="intro">
+<h1>🌹 توقفي لحظة... 🌹</h1>
+<br>
+<h2>هناك شيء صُنع من القلب من أجلك...</h2>
+</div><div id="main">
+
+<h1 style="font-size:50px;color:#ff4d6d;">
+👑 جميلة... أميرتي 👑
+</h1>
+
+<br>
+
+<p id="text" style="font-size:24px;line-height:2;"></p>
+
+<br><br>
+
+<h2 style="color:#ffd700;">
+🇲🇦 ديما مغرب 🇲🇦
+</h2>
+
+<h3>
+عبد السلام 🤍 جميلة
+</h3>
+
+</div>
 
 <script>
-for(let i=0;i<60;i++){
-let h=document.createElement("div");
-h.innerHTML="❤️";
-h.className="heart";
-h.style.left=Math.random()*100+"vw";
-h.style.animationDuration=(3+Math.random()*5)+"s";
-h.style.fontSize=(15+Math.random()*30)+"px";
-document.body.appendChild(h);
+
+const message=`إلى أميرتي جميلة...
+
+ليست كل الهدايا تُشترى...
+فبعضها يُصنع من القلب.
+
+كل وردة أراها...
+تذكرني بك.
+
+أسأل الله أن يحفظك،
+ويجعل الابتسامة لا تفارق وجهك.
+
+🌹 جميلة... ستبقين دائماً أميرتي. 🌹`;
+
+setTimeout(()=>{
+document.getElementById("main").style.display="block";
+},14000);
+
+let i=0;
+
+function type(){
+
+if(i<message.length){
+
+document.getElementById("text").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(type,60);
+
 }
+
+}
+
+setTimeout(type,14500);
+
+</script><script>
+function createRose(){
+
+const rose=document.createElement("div");
+
+rose.classList.add("rose");
+
+rose.innerHTML="🌹";
+
+rose.style.left=Math.random()*100+"vw";
+
+rose.style.animationDuration=(4+Math.random()*5)+"s";
+
+rose.style.fontSize=(20+Math.random()*30)+"px";
+
+document.body.appendChild(rose);
+
+setTimeout(()=>{
+rose.remove();
+},9000);
+
+}
+
+setInterval(createRose,300);
 </script>
 
 </body>
